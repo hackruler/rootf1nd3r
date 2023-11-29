@@ -6,5 +6,5 @@ It finds all the root domains associated with a domain and helps you to increase
 
 `cd rootf1nd3r`
 
-#Usage 
+# Usage 
 `bash root.sh <domain file>`
