@@ -3,3 +3,8 @@ It finds all the root domains associated with a domain and helps you to increase
 
 # Installation
 `git clone https://github.com/hackruler/rootf1nd3r`
+
+`cd rootf1nd3r`
+
+#Usage 
+`bash root.sh <domain file>`
