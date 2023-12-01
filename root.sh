@@ -38,7 +38,7 @@ fi
 
 echo -e "${YELLOW}[!] Finding root domains from crt.sh${NC}";
 for domain in $(cat "$input_file"); do 
-        curl -s https://crt.sh/?q=${domain}\&output=json --retry 5 | jq | grep -e name_value -e common_name | sort -u | grep \* | cut -d ":" -f2 | sed 's/\"\|\"\,//g' >
+        curl -s https://crt.sh/?q=${domain}\&output=json --retry 5 | jq | grep -e name_value -e common_name | sort -u | grep \* | cut -d ":" -f2 | sed 's/\"\|\"\,//g' | sed 's/\\n/\n/g' | sed 's/^ *//' | grep \* | sort -u | sed 's/\*\.//g' | tee -a root.txt > /dev/null || cexit $?; 
         sleep 20
 done
 cat "$input_file" | anew root.txt >> /dev/null || cexit $?;
