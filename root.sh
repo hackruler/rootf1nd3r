@@ -51,5 +51,6 @@ echo -e "${GREEN}[**]" $(cat subdomains.txt | wc -l)" subdomains found.${NC}";
 echo -e "${YELLOW}[!] httpx is running...${NC}";
 httpx -l subdomains.txt -silent -sc -td -cl | tee -a httpx.txt > /dev/null || cexit $?;
 echo -e "${GREEN}[*] httpx result is stored to httpx.txt${NC}";
+echo -e "${GREEN}[**]" $(cat httpx.txt | wc -l)" working domains found.${NC}";
 echo "[*] .........................SCRIPT ENDED.....................";
 
