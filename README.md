@@ -19,4 +19,5 @@ Or you can directly run using-
 
 ![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/d214fee3-246c-46e9-81fd-0fa9cb97cb5b)
 
+![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/26b64769-53c1-4ed1-ae4c-5a9aced757a7)
 
