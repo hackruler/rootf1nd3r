@@ -7,8 +7,15 @@ It finds all the root domains associated with a domain and helps you to increase
 `cd rootf1nd3r`
 
 # Usage 
+`chmod +x root.sh`
+`./root.sh <doamin file>` 
+
+Or you can directly run using-
+
 `bash root.sh <domain file>`
 
-#Example
+# Example
 
 ![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/d214fee3-246c-46e9-81fd-0fa9cb97cb5b)
+
+
