@@ -8,6 +8,7 @@ It finds all the root domains associated with a domain and helps you to increase
 
 # Usage 
 `chmod +x root.sh`
+
 `./root.sh <doamin file>` 
 
 Or you can directly run using-
