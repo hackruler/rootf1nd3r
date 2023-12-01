@@ -41,7 +41,7 @@ for domain in $(cat "$input_file"); do
         curl -s https://crt.sh/?q=${domain}\&output=json --retry 5 | jq | grep -e name_value -e common_name | sort -u | grep \* | cut -d ":" -f2 | sed 's/\"\|\"\,//g' | sed 's/\\n/\n/g' | sed 's/^ *//' | grep \* | sort -u | sed 's/\*\.//g' | tee -a root.txt > /dev/null || cexit $?; 
         sleep 20
 done
-cat "$input_file" | anew root.txt >> /dev/null || cexit $?;
+cat "$input_file" | anew root.txt > /dev/null || cexit $?;
 echo -e "${GREEN}[*] All the root domains are stored to root.txt${NC}";
 echo -e "${GREEN}[**]" $(cat root.txt | wc -l)" root domains found${NC}";
 echo -e "${YELLOW}[!] Subfinder is running...${NC}";
