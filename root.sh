@@ -13,26 +13,48 @@ cexit() {
 }
 
 
+show_help() {
+    echo "Usage: bash root.sh -l <root domains file>"
+    echo "Options:"
+    echo "-h                          Help Menu"
+    echo "-l <input_file>             Specify the domain file"
+}
+
+
 trap 'cexit 1' SIGINT;
 
-if [ -z "$1" ] || [ "$#" -ne 1 ]; then
-    echo -e "${GREEN}Usage: bash $0 <input_file>${NC}";
-    cexit 1
+while getopts ":l:h" opt; do
+    case $opt in
+        l)
+            input_file="$OPTARG"
+            ;;
+        h)
+            show_help 
+            ;;            
+        \?)
+            echo -e "${RED}Invalid option.${NC}"
+            show_help
+            ;;
+    esac
+done
+
+if [ -z "$input_file" ]; then
+    show_help
+    exit 0
 fi
 
-input_file="$1"
-
 if [ ! -f "$input_file" ]; then
-    echo -e "${RED}Error: The specified input file '$input_file' is not present in the directory.${NC}";
+    echo -e "${RED}Error: The specified input file '$input_file' is not present in the directory.${NC}"
     cexit 1
 fi
 
 if [ ! -s "$input_file" ]; then
-    echo -e "${RED}Error: The specified input file '$input_file' is empty.${NC}";
+    echo -e "${RED}Error: The specified input file '$input_file' is empty.${NC}"
     cexit 1
 fi
+
 if [ ! -r "$input_file" ]; then
-    echo -e "${RED}Error: The specified input file '$input_file' is not readable.${NC}";
+    echo -e "${RED}Error: The specified input file '$input_file' is not readable.${NC}"
     cexit 1
 fi
 
@@ -44,13 +66,14 @@ done
 cat "$input_file" | anew root.txt > /dev/null || cexit $?;
 echo -e "${GREEN}[*] All the root domains are stored to root.txt${NC}";
 echo -e "${GREEN}[**]" $(cat root.txt | wc -l)" root domains found${NC}";
+
 echo -e "${YELLOW}[!] Subfinder is running...${NC}";
 cat root.txt | subfinder -all -silent | sort -u | tee subdomains.txt > /dev/null || cexit $?;
 echo -e "${GREEN}[*] Subfinder result is stored to subdomains.txt${NC}";
 echo -e "${GREEN}[**]" $(cat subdomains.txt | wc -l)" subdomains found.${NC}";
+
 echo -e "${YELLOW}[!] httpx is running...${NC}";
 httpx -l subdomains.txt -silent -sc -td -cl | tee -a httpx.txt > /dev/null || cexit $?;
 echo -e "${GREEN}[*] httpx result is stored to httpx.txt${NC}";
-echo -e "${GREEN}[**]" $(cat httpx.txt | wc -l)" working domains found.${NC}";
 echo "[*] .........................SCRIPT ENDED.....................";
 
