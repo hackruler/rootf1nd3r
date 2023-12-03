@@ -8,13 +8,11 @@ It finds all the root domains associated with a domain and helps you to increase
 
 # Usage 
 
-`bash root.sh <domain file path>`
+`bash root.sh -l <domain file path>`
 
 # Example
 
-![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/d214fee3-246c-46e9-81fd-0fa9cb97cb5b)
-
-![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/26b64769-53c1-4ed1-ae4c-5a9aced757a7)
+![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/dc911e8f-5916-4265-80f2-e881e87ce928)
 
 
 
@@ -34,10 +32,9 @@ And then type this command to save...
 
 Then you can use this as...
 
-`rootf <domain file path>`
+`rootf -l <domain file path>`
 
 # Example
 
-![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/080b9a42-f1c9-4ec6-986a-737809fe3c60)
-
+![image](https://github.com/hackruler/rootf1nd3r/assets/82742964/f11ae723-d839-47b9-a23d-383db1c21cf8)
 
