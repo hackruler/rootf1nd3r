@@ -14,10 +14,10 @@ cexit() {
 
 
 show_help() {
-    echo "Usage: bash root.sh -l <root domains file>"
-    echo "Options:"
-    echo "-h                          Help Menu"
-    echo "-l <input_file>             Specify the domain file"
+    echo "   Usage: bash root.sh -l <root domains file>"
+    echo "   Options:"
+    echo "   -h                          Help Menu"
+    echo "   -l <input_file>             Specify the domain file"
 }
 
 
