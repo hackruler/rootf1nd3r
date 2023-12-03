@@ -39,7 +39,6 @@ while getopts ":l:h" opt; do
 done
 
 if [ -z "$input_file" ]; then
-    show_help
     exit 0
 fi
 
